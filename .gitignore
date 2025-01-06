@@ -1,0 +1,5 @@
+
+/.vscode
+/winBuild
+/wslClangBuild
+/wslG++Build
