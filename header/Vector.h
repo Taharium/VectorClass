@@ -25,7 +25,7 @@ class Vector {
             //memcpy(m_container, other.m_container, m_length * sizeof(T));
         }
 
-        Vector(Vector&& other){
+        Vector(Vector&& other) noexcept {
             if(!other.m_container){
                 return;
             }
@@ -37,7 +37,7 @@ class Vector {
             other.m_length = 0;
         }
 
-        Vector& operator=(Vector&& other){
+        Vector& operator=(Vector&& other) noexcept {
             if(!other.m_container || this != &other){
                 delete[] m_container;
                 m_container = other.m_container;
@@ -80,7 +80,7 @@ class Vector {
             return m_container[n];
         }
 
-        void reserve(size_t size) {
+        void reserve(size_t size) const {
             if(m_capacity < size){
                 resize(size);
             }
@@ -109,7 +109,7 @@ class Vector {
             newCon = nullptr;
         }
 
-        size_t size(){
+        size_t size() const {
             return m_length;
         }
 
